@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 
 
+Route::get('/inicio', function () {
+    return view('inicio');
+});
 
 
 
@@ -27,4 +30,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('tipoestablecimiento','tipoestablecimientoController');
-
+//Route::get('tipoestablecimiento/create','tipoestablecimientoController@create');

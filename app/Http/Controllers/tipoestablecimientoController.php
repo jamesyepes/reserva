@@ -14,9 +14,10 @@ class tipoestablecimientoController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function index(){
-        $datos=DB::table('tipo_empresa')->get();
-        return view('admin.tipoEstablecimiento.index', compact($datos));
+      
+        return view('admin.tipoEstablecimiento.index');
     }
     
     public function create(){
