@@ -27,9 +27,13 @@ class registroController extends Controller
             $password=$request->input('password');
             $tipo=$request->input('tipo');
             $documento=$request->input('documento');
+            $token=$request->input('_token');
 
         DB::table('usuario')->insert(['nombre_usuario'=>$usuario,'contraseña'=>$password,'rol_idrol'=>2]);
         $idusuario= DB::table('usuario')->max('idusuario');
+
+         //tabla user
+         DB::table('users')->insert(['name'=>$usuario, 'email'=>$email,'password'=>bcrypt($password),'remember_token'=>$token,'fk_idrol'=>2]);
 
         DB::table('empresa')->insert(['razon_social'=>$empresa,'responsable'=>$responsable,'documento'=>$documento, 'telefono'=> $telefono, 
          'direccion'=>$direccion, 'email'=>$email, 'web'=> $web,'tipo_empresa_idtipo_empresa'=>$tipo,'usuario_idusuario'=>$idusuario]);
@@ -46,9 +50,13 @@ class registroController extends Controller
           $apellido=$request->input('apellidos');
           $email=$request->input('email');
           $telefono=$request->input('telefono');
+           $token=$request->input('_token');
 
         DB::table('usuario')->insert(['nombre_usuario'=>$usuario,'contraseña'=>$password,'rol_idrol'=>3]);
         $idusuario= DB::table('usuario')->max('idusuario');
+
+        DB::table('users')->insert(['name'=>$usuario, 'email'=>$email,'password'=>bcrypt($password),'remember_token'=>$token,'fk_idrol'=>3]);
+
 
         DB::table('cliente')->insert(['nombre'=>$nombre, 'telefono'=> $telefono, 
         'email'=>$email, 'apellido'=>$apellido,'usuario_idusuario'=>$idusuario]);
