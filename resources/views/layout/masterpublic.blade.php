@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Gretong a Ecommerce Category Flat Bootstarp Responsive Website Template | Home :: w3layouts</title>
+<title>Reseva tu Plan</title>
 <link href="{{ url('publicstyle/css/bootstrap.css')}}" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary JavaScript plugins) -->
 <script type='text/javascript' src="{{ url('publicstyle/js/jquery-1.11.1.min.js') }}"></script>
@@ -25,7 +25,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- start menu -->
 <link href="{{ url('publicstyle/css/megamenu.css')}}" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="{{ url('publicstyle/js/megamenu.js') }}"></script>
-<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+<script>$(document).ready(function(){
+		
+	$(".megamenu").megamenu();
+	$('#formcliente').hide(); //oculto mediante id
+	$("#checkempresa").on( "click", function() {
+				$('#formempresa').show(); //muestro mediante id
+				$('#formcliente').hide(); //muestro mediante clase
+			});
+			$("#checkcliente").on( "click", function() {
+				$('#formempresa').hide(); //oculto mediante id
+				$('#formcliente').show(); //muestro mediante clase
+			});
+});</script>
 <script src="{{  url('publicstyle/js/menu_jquery.js') }}"></script>
 <script src="{{  url('publicstyle/js/simpleCart.min.js') }}"> </script>
 </head>
@@ -54,7 +66,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="header">
 	<div class="head-t">
 		<div class="logo">
-			<a href="index.html"><img src="{{ url('publicstyle/images/logo.png') }}" class="img-responsive" alt=""/> </a>
+			<a href="index.html">
+			 <h2>Reserva tu Plan</h2>
+			<!--<img src="{{ url('publicstyle/images/logo.png') }}" class="img-responsive" alt=""/> -->
+			</a>
 		</div>
 		<!-- start header_right -->
 		<div class="header_right">
@@ -62,19 +77,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="log">
 					<div class="login" >
 						<div id="loginContainer">
-							<a href="#" id="loginButton"><span>Logins</span></a>
+							<a href="#" id="loginButton"><span>Login</span></a>
 						    <div id="loginBox">                
-						        <form id="loginForm">
+						        <form id="loginForm" method="POST" action="{{ route('login') }}">
+								  {{ csrf_field() }}
 						                <fieldset id="body">
 						                	<fieldset>
-						                          <label for="email">Email Address</label>
-						                          <input type="text" name="email" id="email">
+											<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+						                          <label for="email">Usuario</label>
+						                          <input type="text" name="email" id="email" value="{{ old('email') }}" required autofocus >
+												   @if ($errors->has('email'))
+														<span class="help-block">
+															<strong>{{ $errors->first('email') }}</strong>
+														</span>
+													@endif
+													</div>
 						                    </fieldset>
 						                    <fieldset>
-						                            <label for="password">Password</label>
-						                            <input type="password" name="password" id="password">
+											<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+						                            <label for="password">Contraseña</label>
+						                            <input type="password" name="password" id="password" required>
+													   @if ($errors->has('password'))
+															<span class="help-block">
+																<strong>{{ $errors->first('password') }}</strong>
+															</span>
+														@endif
+												</div>
 						                     </fieldset>
-						                    <input type="submit" id="login" value="Sign in">
+						                    <input type="submit" id="login" value="Ingresar">
 						                	<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
 						            	</fieldset>
 						            <span><a href="#">Forgot your password?</a></span>
@@ -84,7 +114,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 				<div class="reg">
-					<a href="register.html">REGISTER</a>
+					<a href="{{url('registro')}}">REGISTER</a>
 				</div>
 			<div class="cart box_1">
 				<a href="checkout.html">
@@ -754,121 +784,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 </div>
-<div class="arriv">
+	@yield("content")
 	<div class="container">
-		<div class="arriv-top">
-			<div class="col-md-6 arriv-left">
-				<img src="{{ url('publicstyle/images/1.jpg') }}" class="img-responsive" alt="">
-				<div class="arriv-info">
-					<h3>NEW ARRIVALS</h3>
-					<p>REVIVE YOUR WARDROBE WITH CHIC KNITS</p>
-					<div class="crt-btn">
-						<a href="details.html">TAKE A LOOK</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6 arriv-right">
-				<img src="{{ url('publicstyle/images/2.jpg') }}" class="img-responsive" alt="">
-				<div class="arriv-info">
-					<h3>TUXEDO</h3>
-					<p>REVIVE YOUR WARDROBE WITH CHIC KNITS</p>
-					<div class="crt-btn">
-						<a href="details.html">SHOP NOW</a>
-					</div>
-				</div>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-		<div class="arriv-bottm">
-			<div class="col-md-8 arriv-left1">
-				<img src="{{ url('publicstyle/images/3.jpg') }}" class="img-responsive" alt="">
-				<div class="arriv-info1">
-					<h3>SWEATER</h3>
-					<p>REVIVE YOUR WARDROBE WITH CHIC KNITS</p>
-					<div class="crt-btn">
-						<a href="details.html">SHOP NOW</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 arriv-right1">
-				<img src="{{ url('publicstyle/images/4.jpg') }}" class="img-responsive" alt="">
-				<div class="arriv-info2">
-					<a href="details.html"><h3>Trekking Shoes<i class="ars"></i></h3></a>
-				</div>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-		<div class="arriv-las">
-			<div class="col-md-4 arriv-left2">
-				<img src="{{ url('publicstyle/images/5.jpg') }}" class="img-responsive" alt="">
-				<div class="arriv-info2">
-					<a href="details.html"><h3>Casual Glasses<i class="ars"></i></h3></a>
-				</div>
-			</div>
-			<div class="col-md-4 arriv-middle">
-				<img src="{{ url('publicstyle/images/6.jpg') }}" class="img-responsive" alt="">
-				<div class="arriv-info3">
-					<h3>FRESH LOOK T-SHIRT</h3>
-					<div class="crt-btn">
-						<a href="details.html">SHOP NOW</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 arriv-right2">
-				<img src="{{ url('publicstyle/images/7.jpg') }}" class="img-responsive" alt="">
-				<div class="arriv-info2">
-					<a href="details.html"><h3>Elegant Watches<i class="ars"></i></h3></a>
-				</div>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
+	@yield("registrocontent")
 	</div>
-</div>
-<div class="special">
-	<div class="container">
-		<h3>Special Offers</h3>
 
-		@yield("content")
-
-		<div class="specia-top">
-			<ul class="grid_2">
-		<li>
-				<a href="details.html"><img src="{{ url('publicstyle/images/8.jpg') }}" class="img-responsive" alt=""></a>
-				<div class="special-info grid_1 simpleCart_shelfItem">
-					<h5>Lorem ipsum dolor</h5>
-					<div class="item_add"><span class="item_price"><h6>ONLY $40.00</h6></span></div>
-					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>
-				</div>
-		</li>
-		<li>
-				<a href="details.html"><img src="{{ url('publicstyle/images/9.jpg') }}" class="img-responsive" alt=""></a>
-				<div class="special-info grid_1 simpleCart_shelfItem">
-					<h5>Consectetur adipis</h5>
-					<div class="item_add"><span class="item_price"><h6>ONLY $60.00</h6></span></div>
-					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>
-			</div>
-		</li>
-		<li>
-				<a href="details.html"><img src="{{ url('publicstyle/images/10.jpg') }}" class="img-responsive" alt=""></a>
-				<div class="special-info grid_1 simpleCart_shelfItem">
-					<h5>Commodo consequat</h5>
-					<div class="item_add"><span class="item_price"><h6>ONLY $14.00</h6></span></div>
-					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>
-			</div>
-		</li>
-		<li>
-				<a href="details.html"><img src="{{ url('publicstyle/images/11.jpg') }}" class="img-responsive" alt=""></a>
-				<div class="special-info grid_1 simpleCart_shelfItem">
-					<h5>Voluptate velit</h5>
-					<div class="item_add"><span class="item_price"><h6>ONLY $37.00</h6></span></div>
-					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>
-				</div>
-		</li>
-		<div class="clearfix"> </div>
-	</ul>
-		</div>
-	</div>
-</div>
 <div class="foot-top">
 	<div class="container">
 		<div class="col-md-6 s-c">

@@ -22,6 +22,12 @@ Route::get('/inicio', function () {
 
 
 
+Route::get('/registro','registroController@index');
+Route::post('storeempresa','registroController@storeempresa');
+Route::post('storecliente','registroController@storecliente');
+
+Route::resource('establecimientos','establecimientoController');
+
 
 //Route::get('establecimiento','establecimientoControler@form');
 //Route::get('consul_establecimiento','establecimientoControler@consultar');
