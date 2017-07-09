@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Reseva tu Plan</title>
+<title>Reserva tu Plan</title>
 <link href="{{ url('publicstyle/css/bootstrap.css')}}" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary JavaScript plugins) -->
 <script type='text/javascript' src="{{ url('publicstyle/js/jquery-1.11.1.min.js') }}"></script>
@@ -106,7 +106,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														@endif
 												</div>
 						                     </fieldset>
-						                    <input type="submit" id="login" value="Ingresar">
+						                    <input type="submit" name="login" id="login" value="Ingresar">
 						                	<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
 						            	</fieldset>
 						            <span><a href="#">Forgot your password?</a></span>
