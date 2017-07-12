@@ -82,6 +82,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a href="#" id="loginButton"><span>Login</span></a>
 						    <div id="loginBox">                
 						        <form id="loginForm" method="POST" action="{{ route('login') }}">
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								  {{ csrf_field() }}
 						                <fieldset id="body">
 						                	<fieldset>
@@ -163,7 +164,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 		<!-- start header menu -->
 		<ul class="megamenu skyblue">
-			<li class="active grid"><a class="color1" href="{{url('/inicio')}}">Home</a></li>
+			<li class="active grid"><a class="color1" href="{{url('/inicio')}}">Perfil</a></li>
 			<!--<li class="grid"><a class="color2" href="#">new arrivals</a>
 				<div class="megapanel">
 					<div class="row">
@@ -215,7 +216,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
     				</div>
 				</li>
-			<li><a class="color4" href="#">TUXEDO</a>
+			<!--<li><a class="color4" href="#">TUXEDO</a>
 				<div class="megapanel">
 					<div class="row">
 						<div class="col1">

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('inicio');
 });
 
 
@@ -26,7 +26,7 @@ Route::get('/registro','registroController@index');
 Route::post('storeempresa','registroController@storeempresa');
 Route::post('storecliente','registroController@storecliente');
 
-Route::resource('establecimientos','establecimientoController');
+//Route::resource('establecimientos','establecimientoController');
 
 
 //Route::get('establecimiento','establecimientoControler@form');
@@ -34,6 +34,7 @@ Route::resource('establecimientos','establecimientoController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::resource('tipoestablecimiento','tipoestablecimientoController');
+Route::resource('admin_reg_cliente','reg_Usuario_Controller');
+Route::resource('establecimientos','establecimientoController');
 //Route::get('tipoestablecimiento/create','tipoestablecimientoController@create');

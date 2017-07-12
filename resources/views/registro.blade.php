@@ -186,7 +186,6 @@
 					<label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>i agree to shoppe.com &nbsp;<a class="terms" href="#"> terms of service</a> </label>
 				</div>
 			</form>
-
 		</div>
 
 		</div>

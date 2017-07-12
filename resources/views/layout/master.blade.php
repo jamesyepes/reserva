@@ -59,7 +59,22 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                
+
+                 <li><a><i class="fa fa-home"></i>Administrador<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{ route('admin_reg_cliente.create') }}">Registrar</a></li>
+                      <li><a href="{{ route('admin_reg_cliente.index') }}">Consultar</a></li>                     
+                    </ul>
+                  </li>
+
+                  <li><a><i class="fa fa-home"></i>Empresa<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{ route('establecimientos.index') }}">Consultar</a></li>
+                       <li><a href="{{ route('establecimientos.create') }}">Registrar</a></li>
+                                   
+                    </ul>
+                  </li>
+
                    <li><a><i class="fa fa-home"></i>Tipo Establecimiento <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ route('tipoestablecimiento.create') }}">Registrar</a></li>

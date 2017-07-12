@@ -14,6 +14,7 @@ class registroController extends Controller
         return view('registro', compact('datos'));
      
     }
+    
 
     public function storeempresa(Request $request){
 
