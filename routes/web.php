@@ -37,4 +37,20 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('tipoestablecimiento','tipoestablecimientoController');
 Route::resource('admin_reg_cliente','reg_Usuario_Controller');
 Route::resource('establecimientos','establecimientoController');
+
+Route::group(['prefix'=>'cliente'],function(){
+    
+    Route::get('formactualizar',function(){
+        $idclientesession=Auth::user()->id;
+        $datos_clientes=DB::table('cliente')
+                 ->select('idcliente','nombre','apellido','telefono','fecha_nacimiento','sexo')->where('fk_user','=',$idclientesession)->get();
+               return view('cliente.actualizar',compact('datos_clientes'));
+    });
+
+    Route::get('index',function(){
+        return view('cliente.index');
+    });
+
+    Route::Resource('actualizar','cliente\clienteController');
+});
 //Route::get('tipoestablecimiento/create','tipoestablecimientoController@create');

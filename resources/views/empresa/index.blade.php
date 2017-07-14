@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout.masterempresa')
 
 @section("content")
 <h1>EMPRESA</h1>

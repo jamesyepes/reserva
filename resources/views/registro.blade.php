@@ -55,6 +55,9 @@
 		
 		})();
 		</script>
+
+		@include('fragments.error')
+		@include('fragments.mensajes')
 		 <div class="registration_form">
 
 
@@ -78,15 +81,20 @@
 			 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div>
 					<label>
-						<input placeholder="Empresa" name="empresa" type="text" tabindex="1" required autofocus>
+						<input placeholder="Empresa*" name="empresa" type="text" tabindex="1" required autofocus>
+					</label>
+				</div>
+				<div>
+					<label>
+						<input placeholder="Nit*" name="nit" type="text" tabindex="1" maxlength="10" required autofocus>
 					</label>
 				</div>
 				<div>
 				     <label>
-
+					 		
                           <select name="tipo" class="select2_group form-control">
                           <!-- tipo de establecimienro -->
-                           <option value="">Seleccione tipo de Establecimienro</option>
+                           <option value="">Seleccione tipo de Establecimienro*</option>
                           @foreach($datos as $tipo_estab)
                               <option value="{{ $tipo_estab->idtipo_empresa }}">{{ $tipo_estab->tipo }}</option>
                           @endforeach    
@@ -97,50 +105,48 @@
 				</div>
 				<div>
 					<label>
-						<input placeholder="Representante Legal:" name="representante" type="text" tabindex="2" required autofocus>
+						<input placeholder="Representante Legal*" name="representante" type="text" tabindex="2" required autofocus>
 					</label>
 				</div>
 				<div>
 					<label>
-						<input placeholder="Documento:" name="documento" type="text" tabindex="2" required autofocus>
+						<input placeholder="Documento*" name="documento" type="text" tabindex="2" required autofocus>
 					</label>
 				</div>
 				<div>
 					<label>
-						<input placeholder="Correo Electronico:" name="email" type="email" tabindex="3" required>
+						<input placeholder="Correo Electronico*" name="email" type="email" tabindex="3" required>
 					</label>
 				</div>
 				<div>
 					<label>
-						<input placeholder="Telefono:" name="telefono" type="tel" tabindex="3" required>
+						<input placeholder="Telefono" name="telefono" type="tel" tabindex="3" required>
 					</label>
 				</div>
 				<div>
 					<label>
-						<input placeholder="Sitio Web:" name="website" type="text" tabindex="3" required>
+						<input placeholder="Sitio Web" name="website" type="text" tabindex="3" required>
 					</label>
 				</div>
 				<div>
 					<label>
-						<input placeholder="Usuario:" name="usuario" type="text" tabindex="3" required autofocus>
+						<input placeholder="Usuario*" name="usuario" type="text" tabindex="3" required autofocus>
 					</label>
 				</div>
 				<div>
 					<label>
-						<input placeholder="Contraseña" name="password" type="password" tabindex="4" required>
+						<input placeholder="Contraseña*" name="password" type="password" tabindex="4" required>
 					</label>
 				</div>						
 				<div>
 					<label>
-						<input placeholder="Repetir Contraseña" name="password2" type="password" tabindex="4" required>
+                            <input id="password-confirm" type="password" class="form-control" placeholder="Confirmar Contraseña*" name="password_confirmation" required>
 					</label>
 				</div>	
 				<div>
 					<input type="submit" value="Crear Cuenta" id="register-submit">
 				</div>
-				<div class="sky-form">
-					<label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>i agree to shoppe.com &nbsp;<a class="terms" href="#"> terms of service</a> </label>
-				</div>
+				
 			</form>
 			<!-- /Form -->
 		</div>
@@ -151,7 +157,7 @@
 			 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 		  		<div>
 					<label>
-						<input placeholder="Nombre" name="nombre" type="text" tabindex="2" required autofocus>
+						<input placeholder="Nombre*" name="nombre" type="text" tabindex="2" required autofocus>
 					</label>
 				</div>
 				<div>
@@ -161,39 +167,46 @@
 				</div>
 				<div>
 					<label>
-						<input placeholder="Correo Electronico:" name="email" type="email" tabindex="3" required>
+						<input placeholder="Correo Electronico*" name="email" type="email" tabindex="3" required>
 					</label>
 				</div>
 				<div>
 					<label>
-						<input placeholder="Telefono" name="telefono" type="tel" tabindex="2" required autofocus>
+						<input placeholder="Telefono" name="telefono" type="tel" tabindex="2" >
 					</label>
 				</div>
 				<div>
 					<label>
-						<input placeholder="usuario:" name="usuario" type="text" tabindex="2" required autofocus>
+						<input placeholder="usuario*" name="usuario" type="text" tabindex="2" required autofocus>
 					</label>
 				</div>
 				<div>
 					<label>
-						<input placeholder="Contraseña" name="password" type="password" tabindex="4" required>
+						<input placeholder="Contraseña*" name="password" type="password" tabindex="4" required>
 					</label>
 				</div>	
+
+				<div>
+					<label>
+                            <input id="password-confirm" type="password" class="form-control" placeholder="Confirmar Contraseña*" name="password_confirmation" required>
+					</label>
+				</div>	
+
+
 				<div>
 					<input type="submit" value="Crear Cuenta" id="register-submit">
 				</div>
-				<div class="sky-form">
-					<label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>i agree to shoppe.com &nbsp;<a class="terms" href="#"> terms of service</a> </label>
-				</div>
+			
 			</form>
 		</div>
 
 		</div>
 	</div>
+	<!--
 	<div class="registration_left">
 		<h2>existing user</h2>
 		 <div class="registration_form">
-		 <!-- Form -->
+		
 			<form id="registration_form" action="contact.php" method="post">
 				<div>
 					<label>
@@ -212,9 +225,9 @@
 					<a href="#">forgot your password</a>
 				</div>
 			</form>
-			<!-- /Form -->
+			
 			</div>
-	</div>
+	</div>-->
 	<div class="clearfix"></div>
 	</div>
 	<!-- end registration -->

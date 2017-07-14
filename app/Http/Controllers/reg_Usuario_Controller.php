@@ -31,11 +31,12 @@ class reg_Usuario_Controller extends Controller
             }
             else{
 
-                DB::table('usuario')->insert(['nombre_usuario'=>$usuario,'contraseña'=>$password,'rol_idrol'=>1]);
-                $idusuario= DB::table('usuario')->max('idusuario');
+               // DB::table('usuario')->insert(['nombre_usuario'=>$usuario,'contraseña'=>$password,'rol_idrol'=>1]);
+               
                 //tabla user
                 DB::table('users')->insert(['name'=>$usuario, 'email'=>$email,'password'=>bcrypt($password),'remember_token'=>$token,'fk_idrol'=>1]);
-                
+                 $idusuario= DB::table('users')->max('id');
+
                 DB::table('admin')->insert(['nombre'=>$usuario,'apellido'=>$apellido,'telefono'=>$telefono, 'email'=>$email,'usuario_idusuario'=>$idusuario]);
 
             }

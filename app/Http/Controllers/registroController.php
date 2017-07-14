@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
 
 class registroController extends Controller
 {
@@ -18,6 +19,17 @@ class registroController extends Controller
 
     public function storeempresa(Request $request){
 
+            $this->validate($request, [
+                                 'empresa'=>'required',
+                                 'representante'=>'required',
+                                 'documento'=>'required',
+                                  'email'=>'required|unique:empresa,email',
+                                  'nit'=>'required',
+                                  'usuario'=>'required',
+                                  'password'=>'required|string|min:8|confirmed',
+                                  'tipo'=>'required'               
+                            ]);
+
             $empresa=$request->input('empresa');
             $responsable=$request->input('representante');
             $telefono=$request->input('telefono');
@@ -26,24 +38,43 @@ class registroController extends Controller
             $web=$request->input('website');
             $usuario=$request->input('usuario');
             $password=$request->input('password');
+             $nit=$request->input('nit');
             $tipo=$request->input('tipo');
             $documento=$request->input('documento');
             $token=$request->input('_token');
 
-        DB::table('usuario')->insert(['nombre_usuario'=>$usuario,'contraseña'=>$password,'rol_idrol'=>2]);
-        $idusuario= DB::table('usuario')->max('idusuario');
+     try{
+            //tabla user
+            DB::table('users')->insert(['name'=>$usuario, 'email'=>$email,'password'=>bcrypt($password),'remember_token'=>$token,'fk_idrol'=>2]);
+            $idusuario= DB::table('users')->max('id');//mejor forma es hacerlo con el correo y buscar id
 
-         //tabla user
-         DB::table('users')->insert(['name'=>$usuario, 'email'=>$email,'password'=>bcrypt($password),'remember_token'=>$token,'fk_idrol'=>2]);
+            DB::table('empresa')->insert(['nit'=>$nit,'razon_social'=>$empresa,'responsable'=>$responsable,'documento'=>$documento, 'telefono'=> $telefono, 
+            'direccion'=>$direccion, 'email'=>$email, 'web'=> $web,'tipo_empresa_idtipo_empresa'=>$tipo,'usuario_idusuario'=>$idusuario]);
+        return back()->with('msj','Empresa Registrada');
+            //return back();
 
-        DB::table('empresa')->insert(['razon_social'=>$empresa,'responsable'=>$responsable,'documento'=>$documento, 'telefono'=> $telefono, 
-         'direccion'=>$direccion, 'email'=>$email, 'web'=> $web,'tipo_empresa_idtipo_empresa'=>$tipo,'usuario_idusuario'=>$idusuario]);
-    //return back()->with('msg','Empresa Registrada');
-         return back();
+          } catch (QueryException $ex) {
+              
+                    return back()->with('msj',$ex->getMessage());
+                
+
+            } catch (QueryException $ex) {
+                // something went wrong elsewhere, handle gracefully
+                  return back()->with('msj',$ex->getMessage());
+            }
+
 
     }
 
     public function storecliente(Request $request){
+
+            $this->validate($request, [
+                    'email' => 'required|unique:users,email',
+                    'usuario' => 'required',
+                    'nombre' => 'required',
+                    'password'=>'required|string|min:8|confirmed'                    
+                ]);
+
 
           $usuario=$request->input('usuario');
           $password=$request->input('password');
@@ -51,18 +82,30 @@ class registroController extends Controller
           $apellido=$request->input('apellidos');
           $email=$request->input('email');
           $telefono=$request->input('telefono');
-           $token=$request->input('_token');
-
-        DB::table('usuario')->insert(['nombre_usuario'=>$usuario,'contraseña'=>$password,'rol_idrol'=>3]);
-        $idusuario= DB::table('usuario')->max('idusuario');
-
-        DB::table('users')->insert(['name'=>$usuario, 'email'=>$email,'password'=>bcrypt($password),'remember_token'=>$token,'fk_idrol'=>3]);
+          $token=$request->input('_token');
 
 
-        DB::table('cliente')->insert(['nombre'=>$nombre, 'telefono'=> $telefono, 
-        'email'=>$email, 'apellido'=>$apellido,'usuario_idusuario'=>$idusuario]);
-    //return back()->with('msg','Empresa Registrada');
-         return back();
+          try{
+
+                    DB::table('users')->insert(['name'=>$usuario, 'email'=>$email,'password'=>bcrypt($password),'remember_token'=>$token,'fk_idrol'=>3]);
+                    $idusuario= DB::table('users')->max('id');
+
+                    DB::table('cliente')->insert(['nombre'=>$nombre, 'telefono'=> $telefono, 
+                    'email'=>$email, 'apellido'=>$apellido,'fk_user'=>$idusuario]);
+                return back()->with('msj','Empresa Registrada');
+                    
+
+          } catch (QueryException $ex) {
+              
+                    return back()->with('msj',$ex->getMessage());
+                
+
+            } catch (QueryException $ex) {
+                // something went wrong elsewhere, handle gracefully
+                  return back()->with('msj',$ex->getMessage());
+            }
+
+      
 
     }
 

@@ -1,6 +1,14 @@
 @extends("layout.master")
 
 @section("content")
+@include('admin.fragments.error')
+
+     @if(session()->has('msj'))
+                <div class="alert alert-info fade in">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                      {{session('msj')}}
+                </div>                
+        @endif
 
   <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
@@ -34,6 +42,20 @@
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input name="empresa" id="empresa" class="form-control col-md-7 col-xs-12" data-validate-length-range="6"  placeholder="" required="required" type="text">
+                        </div>
+
+                        @if($errors->has('empresa'))
+                          <div class="alert alert-error">
+                          {{ $errors->first('empresa') }}
+                          </div>
+                        @endif
+                      </div>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nit <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input name="nit" class="form-control col-md-7 col-xs-12" data-validate-length-range="6"   placeholder="" required="required" type="text">
                         </div>
                       </div>
 
@@ -104,16 +126,17 @@
                       <div class="item form-group">
                         <label for="password" class="control-label col-md-3">Password <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="password" type="password" name="password"  class="form-control col-md-7 col-xs-12" required="required">
+                          <input id="password" type="password" name="password"  class="form-control col-md-7 col-xs-12" required="required" min="8">
                         </div>
                       </div>
 
-                      <div class="item form-group">
-                        <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12">Repeat Password <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="password2" type="password" name="password2" data-validate-linked="password" class="form-control col-md-7 col-xs-12" required="required">
+                     <div class="form-group">
+                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
                         </div>
-                      </div>
 
                     
 
