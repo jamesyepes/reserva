@@ -34,10 +34,18 @@ Route::post('storecliente','registroController@storecliente');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('tipoestablecimiento','tipoestablecimientoController');
-Route::resource('admin_reg_cliente','reg_Usuario_Controller');
-Route::resource('establecimientos','establecimientoController');
 
+
+
+
+Route::group(['prefix'=>'admin'],function(){
+
+        Route::resource('establecimientos','establecimientoController');
+        Route::resource('admin_reg_cliente','reg_Usuario_Controller');
+        Route::resource('tipoestablecimiento','tipoestablecimientoController');
+});
+
+//rutas agrupadas de la seccion de clientes
 Route::group(['prefix'=>'cliente'],function(){
     
     Route::get('formactualizar',function(){
@@ -46,6 +54,8 @@ Route::group(['prefix'=>'cliente'],function(){
                  ->select('idcliente','nombre','apellido','telefono','fecha_nacimiento','sexo')->where('fk_user','=',$idclientesession)->get();
                return view('cliente.actualizar',compact('datos_clientes'));
     });
+
+    
 
     Route::get('index',function(){
         return view('cliente.index');

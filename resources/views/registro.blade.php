@@ -66,8 +66,8 @@
 					
 						<div class="sky_form1">
 							<ul>
-								<li><label class="radio left"><input type="radio" name="radio" checked="" id="checkempresa"><i></i>Como Empresa</label></li>
-								<li><label class="radio"><input type="radio" name="radio" id="checkcliente"><i></i>Como Cliente</label></li>
+								<li><label class="radio left"><input type="radio" name="opcion" value="checkempresa"  id="checkempresa"><i></i>Como Empresa</label></li>
+								<li><label class="radio"><input type="radio" name="opcion" value="checkcliente" id="checkcliente"><i></i>Como Cliente</label></li>
 								<div class="clearfix"></div>
 							</ul>
 						</div>

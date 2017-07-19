@@ -50,8 +50,9 @@ class registroController extends Controller
 
             DB::table('empresa')->insert(['nit'=>$nit,'razon_social'=>$empresa,'responsable'=>$responsable,'documento'=>$documento, 'telefono'=> $telefono, 
             'direccion'=>$direccion, 'email'=>$email, 'web'=> $web,'tipo_empresa_idtipo_empresa'=>$tipo,'usuario_idusuario'=>$idusuario]);
-        return back()->with('msj','Empresa Registrada');
-            //return back();
+       
+            return back()->with('msj','Empresa Registrada');
+           
 
           } catch (QueryException $ex) {
               
@@ -92,7 +93,8 @@ class registroController extends Controller
 
                     DB::table('cliente')->insert(['nombre'=>$nombre, 'telefono'=> $telefono, 
                     'email'=>$email, 'apellido'=>$apellido,'fk_user'=>$idusuario]);
-                return back()->with('msj','Empresa Registrada');
+                    
+                return back()->with('msj','Cliente Registrado');
                     
 
           } catch (QueryException $ex) {

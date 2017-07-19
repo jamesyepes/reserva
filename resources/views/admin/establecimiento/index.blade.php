@@ -65,7 +65,7 @@
                                 <td>{{ $item->razon_social }}</td>
                                   <td>{{ $item->tipo }}</td>
                                 <td>{{ $item->responsable }}</td>                              
-                                <td>{{ $item->nombre_usuario }}</td>
+                                <td>{{ $item->name }}</td>
                                  <td>{{ $item->idempresa}}</td>
                               </tr>
                               @endforeach

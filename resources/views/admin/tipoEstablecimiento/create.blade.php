@@ -25,7 +25,7 @@
                   </div>
                                     
                   <div class="x_content">
-                    <form class="form-horizontal form-label-left" method="post" action="{{ route('tipoestablecimiento.store') }}">
+                    <form class="form-horizontal form-label-left" method="post" action="{{ route('admin.tipoestablecimiento.store') }}">
                     {{ csrf_field() }}
                       <div class="form-group">
                         <div class="col-sm-10">

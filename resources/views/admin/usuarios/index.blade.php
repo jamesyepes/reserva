@@ -73,28 +73,25 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Contraseña<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input name="password" id="password" class="form-control col-md-7 col-xs-12" data-validate-length-range="6"  placeholder="" required="required" type="text">
+                          <input name="password" type="password" id="password" class="form-control col-md-7 col-xs-12" data-validate-length-range="6"  placeholder="" required="required" type="text">
                         </div>
                  </div>
                 
-                 <div class="form-group">
+                 <div class="item form-group">
                             <label for="password-confirm" class="col-md-4 control-label">Repetir Contraseña</label>
-
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
 
-                   <div class="form-group">
+                   <div class="item form-group">
                         <div class="col-md-6 col-md-offset-3">
                           <button type="submit" class="btn btn-primary">Cancel</button>
                           <button id="send" type="submit" class="btn btn-success">Submit</button>
                         </div>
                       </div>
 		  		
-				<div class="sky-form">
-					<label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>i agree to shoppe.com &nbsp;<a class="terms" href="#"> terms of service</a> </label>
-				</div>
+				
 		 </form>
                   </div>
                 </div>

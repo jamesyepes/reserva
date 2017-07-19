@@ -13,7 +13,7 @@ class ExampleTest extends DuskTestCase
      *
      * @return void
      */
-    public function testBasicExample()
+   /* public function testBasicExample()
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/inicio')
@@ -24,16 +24,35 @@ class ExampleTest extends DuskTestCase
         });
     }
 
-     public function testLogin_Usuario()
+    public function testLogin_Usuario()
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/inicio')
-                    ->type('email','david@hotmail.com')
+                    ->type('email','jamesyepes@gmail.com')
                     ->type('password','12345678')
                     ->press('login')
                     ->assertPathIs('/home');
 
                  
         });
+    }*/
+
+    public function testRegistro_Cliente(){
+
+         $this->browse(function (Browser $browser) {
+            $browser->visit('/registro')
+                    ->radio('opcion','checkcliente')
+                     ->waitFor('#formcliente')
+                     ->type('nombre','fransico')
+                     ->type('apellido','moreno')
+                    ->type('email','jamesyepes@gmail.com')
+                     ->type('usuario','12345678')                     
+                    ->type('password','12345678')
+                     ->type('password_confirmation','12345678')
+                    ->press('Crear Cuenta')
+                    ->assertSee('Cliente Registrado');
+
+    
+            });
     }
 }

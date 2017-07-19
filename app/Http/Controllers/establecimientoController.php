@@ -18,8 +18,8 @@ class establecimientoController extends Controller
 
         $info=DB::table('empresa')
             ->join('tipo_empresa','empresa.tipo_empresa_idtipo_empresa','=','tipo_empresa.idtipo_empresa')
-            ->join('usuario','usuario.idusuario','=','empresa.usuario_idusuario')
-            ->select('empresa.*','tipo_empresa.tipo','usuario.*')->get();
+            ->join('users','users.id','=','empresa.usuario_idusuario')
+            ->select('empresa.*','tipo_empresa.tipo','users.*')->get();
 
         return view('admin.establecimiento.index',compact('info'));
     }

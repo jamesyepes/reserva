@@ -63,7 +63,7 @@
                  <li><a><i class="fa fa-home"></i>Administrador<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ route('admin_reg_cliente.create') }}">Registrar</a></li>
-                      <li><a href="{{ route('admin_reg_cliente.index') }}">Consultar</a></li>                     
+                      <li><a href="{{ route('admin_reg_cliente.index')}}">Consultar</a></li>                     
                     </ul>
                   </li>
 
@@ -217,6 +217,8 @@
           <div class="">
            <div class="clearfix"></div>
              <div class="row">
+              @include('fragments.error')
+              @include('fragments.mensajes')
               @yield("content")
             </div>
           </div>
