@@ -66,8 +66,8 @@
 					
 						<div class="sky_form1">
 							<ul>
-								<li><label class="radio left"><input type="radio" name="opcion" value="checkempresa"  id="checkempresa"><i></i>Como Empresa</label></li>
-								<li><label class="radio"><input type="radio" name="opcion" value="checkcliente" id="checkcliente"><i></i>Como Cliente</label></li>
+								<li><label class="left"><input type="radio" name="opcion" value="checkempresa"  id="checkempresa"><i></i>Como Empresa</label></li>
+								<li><label class=""><input type="radio" name="opcion" value="checkcliente" id="checkcliente"><i></i>Como Cliente</label></li>
 								<div class="clearfix"></div>
 							</ul>
 						</div>
@@ -115,7 +115,7 @@
 				</div>
 				<div>
 					<label>
-						<input placeholder="Correo Electronico*" name="email" type="email" tabindex="3" required>
+						<input placeholder="Correo Electronico*" name="correo" type="email" tabindex="3" required>
 					</label>
 				</div>
 				<div>
@@ -125,7 +125,7 @@
 				</div>
 				<div>
 					<label>
-						<input placeholder="Sitio Web" name="website" type="text" tabindex="3" required>
+						<input placeholder="Sitio Web" name="website" type="text" tabindex="3" >
 					</label>
 				</div>
 				<div>
@@ -135,12 +135,12 @@
 				</div>
 				<div>
 					<label>
-						<input placeholder="Contraseña*" name="password" type="password" tabindex="4" required>
+						<input placeholder="Contraseña*" name="pass" type="password" tabindex="4" required>
 					</label>
 				</div>						
 				<div>
 					<label>
-                            <input id="password-confirm" type="password" class="form-control" placeholder="Confirmar Contraseña*" name="password_confirmation" required>
+                            <input id="password-confirm" type="password" class="form-control" placeholder="Confirmar Contraseña*" name="pass_confirmation" required>
 					</label>
 				</div>	
 				<div>
@@ -167,7 +167,7 @@
 				</div>
 				<div>
 					<label>
-						<input placeholder="Correo Electronico*" name="email" type="email" tabindex="3" required>
+						<input placeholder="Correo Electronico*" name="emails" type="email" tabindex="3" required>
 					</label>
 				</div>
 				<div>
@@ -177,24 +177,24 @@
 				</div>
 				<div>
 					<label>
-						<input placeholder="usuario*" name="usuario" type="text" tabindex="2" required autofocus>
+						<input placeholder="usuario*" name="usu" type="text" tabindex="2" required autofocus>
 					</label>
 				</div>
 				<div>
 					<label>
-						<input placeholder="Contraseña*" name="password" type="password" tabindex="4" required>
+						<input placeholder="Contraseña*" name="passw" type="password" tabindex="4" required>
 					</label>
 				</div>	
 
 				<div>
 					<label>
-                            <input id="password-confirm" type="password" class="form-control" placeholder="Confirmar Contraseña*" name="password_confirmation" required>
+                            <input id="password-confirm" type="password" class="form-control" placeholder="Confirmar Contraseña*" name="passw_confirmation" required>
 					</label>
 				</div>	
 
 
 				<div>
-					<input type="submit" value="Crear Cuenta" id="register-submit">
+					<input type="submit" value="Crear Cliente" id="register-submit">
 				</div>
 			
 			</form>

@@ -23,5 +23,13 @@ class tipoestablecimientoController extends Controller
     public function create(){
         $datos2=DB::table('tipo_empresa')->get();
         return view('admin.tipoEstablecimiento.create', compact('datos2'));
-    }    
+    } 
+
+     public function store(Request $request){
+      //  DB::table('tipo_empresa')->insert(['tipo'=>$tipoempresa]);
+        $name = $request->input('tipoempresa');
+        DB::table('tipo_empresa')->insert(['tipo'=>$name]);
+          return back();
+        //return view('admin.tipoEstablecimiento.store',compact('name'));
+    }   
 }

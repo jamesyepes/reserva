@@ -23,10 +23,10 @@ class registroController extends Controller
                                  'empresa'=>'required',
                                  'representante'=>'required',
                                  'documento'=>'required',
-                                  'email'=>'required|unique:empresa,email',
+                                  'correo'=>'required|unique:empresa,email',
                                   'nit'=>'required',
                                   'usuario'=>'required',
-                                  'password'=>'required|string|min:8|confirmed',
+                                  'pass'=>'required|string|min:8|confirmed',
                                   'tipo'=>'required'               
                             ]);
 
@@ -34,10 +34,10 @@ class registroController extends Controller
             $responsable=$request->input('representante');
             $telefono=$request->input('telefono');
             $direccion=$request->input('direccion');
-            $email=$request->input('email');
+            $email=$request->input('correo');
             $web=$request->input('website');
             $usuario=$request->input('usuario');
-            $password=$request->input('password');
+            $password=$request->input('pass');
              $nit=$request->input('nit');
             $tipo=$request->input('tipo');
             $documento=$request->input('documento');
@@ -70,18 +70,18 @@ class registroController extends Controller
     public function storecliente(Request $request){
 
             $this->validate($request, [
-                    'email' => 'required|unique:users,email',
-                    'usuario' => 'required',
+                    'emails' => 'required|unique:users,email',
+                    'usu' => 'required',
                     'nombre' => 'required',
-                    'password'=>'required|string|min:8|confirmed'                    
+                    'passw'=>'required|string|min:8|confirmed'                    
                 ]);
 
 
-          $usuario=$request->input('usuario');
-          $password=$request->input('password');
+          $usuario=$request->input('usu');
+          $password=$request->input('passw');
           $nombre=$request->input('nombre');
           $apellido=$request->input('apellidos');
-          $email=$request->input('email');
+          $email=$request->input('emails');
           $telefono=$request->input('telefono');
           $token=$request->input('_token');
 

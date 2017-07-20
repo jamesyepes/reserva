@@ -13,7 +13,7 @@ class ExampleTest extends DuskTestCase
      *
      * @return void
      */
-   /* public function testBasicExample()
+    public function testBasicExample()
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/inicio')
@@ -35,18 +35,17 @@ class ExampleTest extends DuskTestCase
 
                  
         });
-    }*/
+    }
 
-    public function testRegistro_Cliente(){
+   /* public function testRegistro_Cliente(){
 
          $this->browse(function (Browser $browser) {
             $browser->visit('/registro')
                     ->radio('opcion','checkcliente')
-                     ->waitFor('#formcliente')
-                     ->type('nombre','fransico')
-                     ->type('apellido','moreno')
-                    ->type('email','jamesyepes@gmail.com')
-                     ->type('usuario','12345678')                     
+                 ->type('nombre','fransico')
+                     ->type('apellidos','moreno')
+                   ->type('email','frank@g.com')
+                     ->type('usuario','franco')                     
                     ->type('password','12345678')
                      ->type('password_confirmation','12345678')
                     ->press('Crear Cuenta')
@@ -54,5 +53,6 @@ class ExampleTest extends DuskTestCase
 
     
             });
-    }
+          
+    }  */
 }

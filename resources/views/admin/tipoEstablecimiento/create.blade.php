@@ -25,7 +25,7 @@
                   </div>
                                     
                   <div class="x_content">
-                    <form class="form-horizontal form-label-left" method="post" action="{{ route('admin.tipoestablecimiento.store') }}">
+                    <form class="form-horizontal form-label-left" method="post" action="{{ route('tipoestablecimiento.store') }}">
                     {{ csrf_field() }}
                       <div class="form-group">
                         <div class="col-sm-10">
@@ -33,7 +33,7 @@
                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <input type="text" class="form-control" name="tipoempresa" placeholder="Tipo de Establecimiento">
                                 <span class="input-group-btn">
-                                    <button type="submit" class="btn btn-primary">Registrar</button>
+                                    <button type="submit" id='regtipoempresa' class="btn btn-primary">Registrar</button>
                                 </span>
                           </div>
                         </div>

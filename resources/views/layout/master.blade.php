@@ -60,14 +60,14 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
 
-                 <li><a><i class="fa fa-home"></i>Administrador<span class="fa fa-chevron-down"></span></a>
+                 <li><a id='regadmin'><i class="fa fa-home"></i>Administrador<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ route('admin_reg_cliente.create') }}">Registrar</a></li>
                       <li><a href="{{ route('admin_reg_cliente.index')}}">Consultar</a></li>                     
                     </ul>
                   </li>
 
-                  <li><a><i class="fa fa-home"></i>Empresa<span class="fa fa-chevron-down"></span></a>
+                  <li><a id='empresa'><i class="fa fa-home"></i>Empresa<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ route('establecimientos.index') }}">Consultar</a></li>
                        <li><a href="{{ route('establecimientos.create') }}">Registrar</a></li>
@@ -75,9 +75,9 @@
                     </ul>
                   </li>
 
-                   <li><a><i class="fa fa-home"></i>Tipo Establecimiento <span class="fa fa-chevron-down"></span></a>
+                   <li><a id='tipoestablecimiento'><i class="fa fa-home"></i>Tipo Establecimiento <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{ route('tipoestablecimiento.create') }}">Registrar</a></li>
+                      <li><a href="{{ route('tipoestablecimiento.create') }}">Registrar tipo establecimiento</a></li>
                       <li><a href="{{ route('tipoestablecimiento.index') }}">Consultar</a></li>                     
                     </ul>
                   </li>
